@@ -69,9 +69,9 @@
             <p>{{ post.text }}</p>
           </div>
           <div class="single-post__tags">
-            {% for tag in post.tags.all %}
-              <a href="#">{{ tag.name }}</a>
-            {% endfor %}
+                {% for tag in post.tag.all %}
+                <a href="#">{{ tag.name }}</a>
+                {% endfor %}
                     </div>
                     <div class="single-post__next__previous">
                         <div class="row">

@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from mptt.models import MPTTModel, TreeForeignKey
+from ckeditor.fields import RichTextField
 
 
 class Category(MPTTModel):
@@ -60,8 +61,8 @@ class Recipe(models.Model):
     serves = models.CharField(max_length=50)
     prep_time = models.PositiveIntegerField(default=0)
     cook_time = models.PositiveIntegerField(default=0)
-    ingredients = models.TextField()
-    directions = models.TextField()
+    ingredients = RichTextField()
+    directions = RichTextField()
     post = models.ForeignKey(
         Post,
         related_name="recipes",
