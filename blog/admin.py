@@ -1,13 +1,11 @@
 from django.contrib import admin
 from mptt.admin import MPTTModelAdmin
-
 from . import models
 
 
 class RecipeInLine(admin.StackedInline):
     model = models.Recipe
     extra = 1
-
 
 
 @admin.register(models.Post)
@@ -26,3 +24,4 @@ class RecipeAdmin(admin.ModelAdmin):
 admin.site.register(models.Category, MPTTModelAdmin)
 admin.site.register(models.Tag)
 admin.site.register(models.Comment)
+
