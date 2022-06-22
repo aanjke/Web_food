@@ -1,77 +1,77 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <section class="single-post spad">
-    <div class="single-post__hero set-bg" data-setbg="{{ post.image.url }}"></div>
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-8">
-          <div class="single-post__title">
-            <div class="single-post__title__meta">
-              <h2>{{ post.create_at|date:"d" }}</h2>
-              <span>{{ post.create_at|date:"M" }}</span>
-            </div>
-            <div class="single-post__title__text">
-              <ul class="label">
-                <li>{{ post.category }}</li>
-              </ul>
-              <h4>{{ post.title }}</h4>
-              <ul class="widget">
-                <li>by {{ post.author }}</li>
-                <li>3 min read</li>
-                <li>20 Comment</li>
-              </ul>
-            </div>
-          </div>
-          <div class="single-post__social__item">
-            <ul>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-            </ul>
-          </div>
-          <div class="single-post__top__text">
-            <p>{{ post.text|truncatewords:20 }}</p>
-          </div>
-          <div class="single-post__recipe__details">
-            {% for recipe in post.get_recipes %}
-              <div class="single-post__recipe__details__option">
-                <ul>
-                  <li>
-                    <h5><i class="fa fa-user-o"></i> SERVES</h5>
-                    <span>{{ recipe.serves }}</span>
-                  </li>
-                  <li>
-                    <h5><i class="fa fa-clock-o"></i> PREP TIME</h5>
-                    <span>{{ recipe.prep_time }}</span>
-                  </li>
-                  <li>
-                    <h5><i class="fa fa-clock-o"></i> Cook TIME</h5>
-                    <span>{{ recipe.cook_time }}</span>
-                  </li>
-                  <li><a href="#" class="primary-btn"><i class="fa fa-print"></i> Read more</a></li>
-                </ul>
-              </div>
+    <section class="single-post spad">
+        <div class="single-post__hero set-bg" data-setbg="{{ post.image.url }}"></div>
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="single-post__title">
+                        <div class="single-post__title__meta">
+                            <h2>{{ post.create_at|date:"d" }}</h2>
+                            <span>{{ post.create_at|date:"M" }}</span>
+                        </div>
+                        <div class="single-post__title__text">
+                            <ul class="label">
+                                <li>{{ post.category }}</li>
+                            </ul>
+                            <h4>{{ post.title }}</h4>
+                            <ul class="widget">
+                                <li>by {{ post.author }}</li>
+                                <li>3 min read</li>
+                                <li>20 Comment</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="single-post__social__item">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="single-post__top__text">
+                        <p>{{ post.text|truncatewords:20 }}</p>
+                    </div>
+                    <div class="single-post__recipe__details">
+                        {% for recipe in post.get_recipes %}
+                            <div class="single-post__recipe__details__option">
+                                <ul>
+                                    <li>
+                                        <h5><i class="fa fa-user-o"></i> SERVES</h5>
+                                        <span>{{ recipe.serves }}</span>
+                                    </li>
+                                    <li>
+                                        <h5><i class="fa fa-clock-o"></i> PREP TIME</h5>
+                                        <span>{{ recipe.prep_time }}</span>
+                                    </li>
+                                    <li>
+                                        <h5><i class="fa fa-clock-o"></i> Cook TIME</h5>
+                                        <span>{{ recipe.cook_time }}</span>
+                                    </li>
+                                    <li><a href="#" class="primary-btn"><i class="fa fa-print"></i> Read more</a></li>
+                                </ul>
+                            </div>
 
-              <div class="single-post__recipe__details__indegradients">
-                <h5>Ingredients</h5>
-                {{ recipe.ingredients|safe }}
-              </div>
-              <div class="single-post__recipe__details__direction">
-                <h5>Directions</h5>
-                {{ recipe.directions|safe }}
-              </div>
-            {% endfor %}
-          </div>
+                            <div class="single-post__recipe__details__indegradients">
+                                <h5>Ingredients</h5>
+                                {{ recipe.ingredients|safe }}
+                            </div>
+                            <div class="single-post__recipe__details__direction">
+                                <h5>Directions</h5>
+                                {{ recipe.directions|safe }}
+                            </div>
+                        {% endfor %}
+                    </div>
 
-          <div class="single-post__desc">
-            <p>{{ post.text }}</p>
-          </div>
-          <div class="single-post__tags">
-                {% for tag in post.tag.all %}
-                <a href="#">{{ tag.name }}</a>
-                {% endfor %}
+                    <div class="single-post__desc">
+                        <p>{{ post.text }}</p>
+                    </div>
+                    <div class="single-post__tags">
+                        {% for tag in post.tag.all %}
+                            <a href="#">{{ tag.name }}</a>
+                        {% endfor %}
                     </div>
                     <div class="single-post__next__previous">
                         <div class="row">
@@ -84,20 +84,20 @@
                                     </div>
                                     <div class="single-post__previous__text">
                                         <span>Dinner</span>
-                                        <h5>The Best Weeknight Baked <br />Potatoes, 3 Creative Ways</h5>
+                                        <h5>The Best Weeknight Baked <br/>Potatoes, 3 Creative Ways</h5>
                                     </div>
                                 </a>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <a href="#" class="single-post__next">
-                                    <h6>Next posts <span class="arrow_carrot-right"></span> </h6>
+                                    <h6>Next posts <span class="arrow_carrot-right"></span></h6>
                                     <div class="single-post__next__meta">
                                         <h4>05</h4>
                                         <span>Aug</span>
                                     </div>
                                     <div class="single-post__next__text">
                                         <span>Smoothie</span>
-                                        <h5>The $8 French Rosé I Buy in <br />Bulk Every Summer</h5>
+                                        <h5>The $8 French Rosé I Buy in <br/>Bulk Every Summer</h5>
                                     </div>
                                 </a>
                             </div>
