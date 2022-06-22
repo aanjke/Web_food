@@ -2595,6 +2595,10 @@ ol {
 /*---------------------
   Contact
 -----------------------*/
+.contact_icon{
+	max-width: 5%;
+}
+
 .contact_icon {
 	max-width: 5%;
 }
