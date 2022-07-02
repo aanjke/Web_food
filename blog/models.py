@@ -1,9 +1,10 @@
+from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.text import slugify
 from mptt.models import MPTTModel, TreeForeignKey
-from ckeditor.fields import RichTextField
 
 
 class Category(MPTTModel):
@@ -35,7 +36,7 @@ class Tag(models.Model):
 class Post(models.Model):
     author = models.ForeignKey(User, related_name="posts", on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to="articles/")
+    image = models.ImageField(upload_to='articles/')
     text = models.TextField()
     category = models.ForeignKey(
         Category,
@@ -43,9 +44,9 @@ class Post(models.Model):
         on_delete=models.SET_NULL,
         null=True
     )
-    tag = models.ManyToManyField(Tag, related_name="post")
+    tags = models.ManyToManyField(Tag, related_name="post")
     create_at = models.DateTimeField(auto_now_add=True)
-    slug = models.SlugField(max_length=200, default='', unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
         return self.title

@@ -1,8 +1,8 @@
 from django.contrib import admin
-
 from .models import ContactModel, ContactLink, About, Social, ImageAbout
 
-class ImageAboutInLine(admin.StackedInline):
+
+class ImageAboutInline(admin.StackedInline):
     model = ImageAbout
     extra = 1
 
@@ -15,7 +15,7 @@ class ContactModelAdmin(admin.ModelAdmin):
 
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
-    inlines = [ImageAboutInLine]
+    inlines = [ImageAboutInline]
 
 
 admin.site.register(ContactLink)

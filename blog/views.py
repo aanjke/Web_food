@@ -1,9 +1,7 @@
-from django.core.exceptions import ImproperlyConfigured
-from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView
-from .forms import CommentForm
 
-from blog.models import Post, Comment
+from .models import Post, Comment
+from .forms import CommentForm
 
 
 class HomeView(ListView):
@@ -16,8 +14,7 @@ class PostListView(ListView):
     model = Post
 
     def get_queryset(self):
-        return Post.objects.filter(
-            category__slug=self.kwargs.get("slug")).select_related('category')
+        return Post.objects.filter(category__slug=self.kwargs.get("slug")).select_related('category')
 
 
 class PostDetailView(DetailView):
