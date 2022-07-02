@@ -13,7 +13,6 @@ class ContactModelAdmin(admin.ModelAdmin):
     list_display_links = ("name",)
 
 
-
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
     inlines = [ImageAboutInLine]

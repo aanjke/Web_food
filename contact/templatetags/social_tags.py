@@ -15,5 +15,3 @@ def get_social_links():
 def get_about():
     """Вывод about"""
     return About.objects.last()
-
-

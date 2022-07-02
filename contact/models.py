@@ -6,7 +6,7 @@ class ContactModel(models.Model):
     """Класс модели обратной связи"""
     name = models.CharField(max_length=50)
     email = models.EmailField()
-    website = models.URLField(blank=True, null=True )
+    website = models.URLField(blank=True, null=True)
     message = models.TextField(max_length=5000)
     create_at = models.DateTimeField(auto_now_add=True)
 
@@ -25,6 +25,7 @@ class ContactLink(models.Model):
 
 class About(models.Model):
     """Класс модели о странице 'АНАНАС'"""
+    name = models.CharField(max_length=50, default='')
     text = RichTextField()
     mini_text = RichTextField()
 
@@ -33,7 +34,7 @@ class About(models.Model):
         return item.image.url
 
     def get_images(self):
-        return self.about_images.order_by('id') [1:]
+        return self.about_images.order_by('id')[1:]
 
 
 class ImageAbout(models.Model):

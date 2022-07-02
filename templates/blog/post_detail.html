@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load social_tags %}
 
 {% block content %}
     <section class="single-post spad">
@@ -103,21 +104,19 @@
                             </div>
                         </div>
                     </div>
+                    {% get_about as about %}
                     <div class="single-post__author__profile">
                         <div class="single-post__author__profile__pic">
-                            <img src="img/categories/single-post/author-profile.jpg" alt="">
+                            <img src="{{ about.get_first_image }}" alt="">
                         </div>
                         <div class="single-post__author__profile__text">
-                            <h4>Lena Mollein.</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <h4>{{ about.name }}</h4>
+                            <p>{{ about.mini_text|safe }}</p>
                             <div class="single-post__author__profile__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                                {% get_social_links as social_links %}
+                                {% for item in social_links %}
+                                    <a href="{{ item.link }}"><img src="{{ item.icon.url }}"></a>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

@@ -28,5 +28,3 @@ class CommentAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Category, MPTTModelAdmin)
 admin.site.register(models.Tag)
-
-
